@@ -20,8 +20,14 @@ export function convertToPinyinHTML(text, { showPinyin = true } = {}) {
 
   for (let i = 0; i < characters.length; i++) {
     const char = characters[i];
-    const py = pinyinArray[i] || '';
 
+    if (char === '\r') continue;
+    if (char === '\n') {
+      result.push('<br>');
+      continue;
+    }
+
+    const py = pinyinArray[i] || '';
     const isChinese = py && py !== char;
 
     if (isChinese && showPinyin) {

@@ -5,8 +5,7 @@ export function initUI() {
   const textInput = document.getElementById('text-input');
   const outputArea = document.getElementById('output-area');
   const toggleBtn = document.getElementById('toggle-pinyin');
-  const articlePanel = document.getElementById('article-panel');
-  const openArticleBtn = document.getElementById('open-article');
+  const printBtn = document.getElementById('print-view');
   const loadArticleBtn = document.getElementById('load-article');
   const categorySelect = document.getElementById('category-select');
   const wordCountSelect = document.getElementById('wordcount-select');
@@ -42,8 +41,8 @@ export function initUI() {
     render();
   });
 
-  openArticleBtn.addEventListener('click', () => {
-    articlePanel.classList.toggle('open');
+  printBtn.addEventListener('click', () => {
+    window.print();
   });
 
   const categories = getCategories();
@@ -66,7 +65,6 @@ export function initUI() {
     }
 
     textInput.value = article.content;
-    articlePanel.classList.remove('open');
     updateStatus(article.content);
     render();
   });
