@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>拼音小助手 - 中文阅读拼音标注</title>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <script type="module" crossorigin src="/assets/index-BYZUpNfs.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DRKicmOa.css">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <h1>拼音小助手</h1>
+      <p class="subtitle">中文阅读拼音标注工具</p>
+    </header>
+
+    <main class="main">
+      <div class="main-layout">
+        <aside class="sidebar">
+          <div id="article-panel" class="article-panel">
+            <h3>选择短文</h3>
+            <div class="panel-row">
+              <label for="category-select">类别：</label>
+              <select id="category-select" class="select"></select>
+            </div>
+            <div class="panel-row">
+              <label for="wordcount-select">字数限制：</label>
+              <select id="wordcount-select" class="select">
+                <option value="50">50字以内</option>
+                <option value="100" selected>100字以内</option>
+                <option value="150">150字以内</option>
+                <option value="9999">不限字数</option>
+              </select>
+            </div>
+            <button id="load-article" class="btn">随机加载</button>
+          </div>
+
+          <div class="settings-panel">
+            <h3>显示设置</h3>
+            <div class="setting-row">
+              <label for="text-color">文字</label>
+              <input type="color" id="text-color" value="#1e293b">
+            </div>
+            <div class="setting-row">
+              <label for="pinyin-color">拼音</label>
+              <input type="color" id="pinyin-color" value="#4a6cf7">
+            </div>
+            <div class="setting-row">
+              <label for="text-size">字号</label>
+              <input type="range" id="text-size" min="14" max="32" value="18" step="1">
+              <span class="setting-value" id="text-size-value">18</span>
+            </div>
+            <div class="setting-row">
+              <label for="pinyin-size">拼音</label>
+              <input type="range" id="pinyin-size" min="7" max="18" value="10" step="0.5">
+              <span class="setting-value" id="pinyin-size-value">10</span>
+            </div>
+            <div class="setting-row">
+              <label for="letter-spacing">间距</label>
+              <input type="range" id="letter-spacing" min="0" max="0.3" value="0.08" step="0.01">
+              <span class="setting-value" id="letter-spacing-value">0.08</span>
+            </div>
+          </div>
+
+          <div class="external-links">
+            <h3>第三方网站</h3>
+            <ul class="link-list">
+              <li><a href="https://xiaohua.zol.com.cn/" target="_blank" rel="noopener">在线笑话</a></li>
+              <li><a href="https://www.tonghuagushi.com/" target="_blank" rel="noopener">童话故事</a></li>
+              <li><a href="https://www.gushi365.com/" target="_blank" rel="noopener">儿童故事</a></li>
+              <li><a href="https://yuyangushi.com/" target="_blank" rel="noopener">寓言故事</a></li>
+              <li><a href="https://www.5068.com/" target="_blank" rel="noopener">故事大全</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="content-area">
+          <div class="toolbar">
+            <button id="toggle-pinyin" class="btn active">隐藏拼音</button>
+            <button id="print-view" class="btn btn-secondary">打印</button>
+          </div>
+
+          <div class="editor-area">
+            <div class="input-section">
+              <label for="text-input" class="section-label">输入文章</label>
+              <textarea
+                id="text-input"
+                class="text-input"
+                placeholder="在此输入或粘贴中文文章..."
+                spellcheck="false"
+              ></textarea>
+            </div>
+
+            <div class="print-wrapper">
+              <label class="section-label">阅读视图</label>
+              <div class="output-section">
+                <div id="output-area" class="output-area">
+                  <div class="placeholder">请输入中文文章开始阅读...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="status-bar" class="status-bar">中文字数：0</div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>开源声明：拼音标注基于 <a href="https://github.com/zh-lx/pinyin-pro" target="_blank">pinyin-pro</a></p>
+      <p>CopyRight © 2026 <a href="https://github.com/dbxiao" target="_blank">https://github.com/dbxiao</a>. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
