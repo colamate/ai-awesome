@@ -45,6 +45,40 @@ export function initUI() {
     window.print();
   });
 
+  // Display settings
+  const textColorInput = document.getElementById('text-color');
+  const pinyinColorInput = document.getElementById('pinyin-color');
+  const textSizeInput = document.getElementById('text-size');
+  const pinyinSizeInput = document.getElementById('pinyin-size');
+  const textSizeValue = document.getElementById('text-size-value');
+  const pinyinSizeValue = document.getElementById('pinyin-size-value');
+  const root = document.documentElement;
+
+  textColorInput.addEventListener('input', () => {
+    root.style.setProperty('--text-color', textColorInput.value);
+  });
+
+  pinyinColorInput.addEventListener('input', () => {
+    root.style.setProperty('--pinyin-color', pinyinColorInput.value);
+  });
+
+  textSizeInput.addEventListener('input', () => {
+    root.style.setProperty('--text-font-size', textSizeInput.value + 'px');
+    textSizeValue.textContent = textSizeInput.value;
+  });
+
+  pinyinSizeInput.addEventListener('input', () => {
+    root.style.setProperty('--pinyin-font-size', pinyinSizeInput.value + 'px');
+    pinyinSizeValue.textContent = pinyinSizeInput.value;
+  });
+
+  const letterSpacingInput = document.getElementById('letter-spacing');
+  const letterSpacingValue = document.getElementById('letter-spacing-value');
+  letterSpacingInput.addEventListener('input', () => {
+    root.style.setProperty('--text-letter-spacing', letterSpacingInput.value + 'em');
+    letterSpacingValue.textContent = letterSpacingInput.value;
+  });
+
   const categories = getCategories();
   categories.forEach((cat) => {
     const option = document.createElement('option');

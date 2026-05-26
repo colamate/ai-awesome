@@ -15,6 +15,11 @@
   --border: #e2e8f0;
   --radius: 10px;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --text-color: #1e293b;
+  --pinyin-color: #4a6cf7;
+  --text-font-size: 18px;
+  --pinyin-font-size: 10px;
+  --text-letter-spacing: 0.08em;
 }
 
 body {
@@ -27,7 +32,8 @@ body {
 }
 
 #app {
-  max-width: 800px;
+  max-width: 1500px;
+  min-width: 1280px;
   margin: 0 auto;
   padding: 24px;
   display: flex;
@@ -138,10 +144,11 @@ body {
 }
 
 .output-area {
-  font-size: 18px;
+  font-size: var(--text-font-size);
+  color: var(--text-color);
   line-height: 2.8;
   word-wrap: break-word;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--text-letter-spacing);
 }
 
 .output-area .placeholder {
@@ -165,8 +172,8 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.52em;
-  color: var(--primary);
+  font-size: var(--pinyin-font-size);
+  color: var(--pinyin-color);
   font-weight: 500;
   line-height: 1.2;
   white-space: nowrap;
@@ -282,6 +289,73 @@ body {
   text-decoration: underline;
 }
 
+/* Display Settings */
+.settings-panel {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
+}
+
+.settings-panel h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.setting-row:last-child {
+  margin-bottom: 0;
+}
+
+.setting-row label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  min-width: 48px;
+  flex-shrink: 0;
+}
+
+.setting-row input[type="color"] {
+  width: 32px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+}
+
+.setting-row input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.setting-row input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.setting-row input[type="range"] {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.setting-value {
+  font-size: 12px;
+  color: var(--text-secondary);
+  min-width: 32px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 .status-bar {
   font-size: 12px;
   color: var(--text-secondary);
@@ -343,11 +417,6 @@ body {
 
   .output-section .section-label {
     display: none;
-  }
-
-  .output-area {
-    font-size: 16px;
-    line-height: 2.4;
   }
 
   @page {
