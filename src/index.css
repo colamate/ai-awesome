@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+/* ── 苹果风 design tokens (NFR-01) ─────────────────────────── */
+:root {
+  --x-color-bg: #f5f5f7;
+  --x-color-surface: #ffffff;
+  --x-color-text: #1d1d1f;
+  --x-color-text-secondary: #6e6e73;
+  --x-color-accent: #0071e3;
+  --x-color-success: #34c759;
+  --x-color-danger: #ff3b30;
+  --x-color-warning: #ff9500;
+  --x-radius-lg: 18px;
+  --x-radius-md: 12px;
+  --x-radius-sm: 8px;
+  --x-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  --x-font:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang SC', 'Helvetica Neue',
+    'Microsoft YaHei', sans-serif;
+  --x-transition: 220ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--x-color-bg);
+  color: var(--x-color-text);
+  font-family: var(--x-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── A4 打印 (FR-MATH-11 / Q-07) ─────────────────────────── */
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm 14mm;
+  }
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-sheet {
+    break-inside: auto;
+  }
+  .print-sheet ol li {
+    break-inside: avoid;
+  }
+}
