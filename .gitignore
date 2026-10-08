@@ -28,3 +28,6 @@ dist-ssr
 .omo/
 .codegraph
 .opencode/
+
+# Cloudflare build output
+.cloudflare/
